@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-
+import { ImageFormComponent } from '../../components/image-form/image-form.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [ImageFormComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

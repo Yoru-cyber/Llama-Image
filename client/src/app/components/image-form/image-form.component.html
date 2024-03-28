@@ -1,0 +1,6 @@
+<form method="get" class="flex flex-col items-center p-5">
+    <input type="file" name="imageUpload" id="image" [formControl]="user_image" class="w-96 mb-5">
+    <input type="number" name="scaleFactor" id="scale" [formControl]="scale_factor" class="mb-5 text-black">
+    <button type="submit" class="w-96 bg-sky-700">Submit</button>
+</form>
+<p class="text-center">Value: {{user_image.value}}</p>
