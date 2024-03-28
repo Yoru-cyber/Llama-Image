@@ -1,0 +1,19 @@
+meta {
+  name: scale
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8000/scale?scaling=2
+  body: multipartForm
+  auth: none
+}
+
+query {
+  scaling: 2
+}
+
+body:multipart-form {
+  file: @file(/home/carlos/Pictures/﹫𝗰𝗮𝗽𝗽𝘂𝘄𝘂𝗰𝗰𝗶𝗻𝗼☕︎.jpeg)
+}

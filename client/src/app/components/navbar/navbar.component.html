@@ -1,0 +1,22 @@
+<nav class="mb-5 grid-cols-3 w-full mt-2">
+  <span class="col-start-1 col-end-1">
+    <span class="flex flex-row">
+      <img src="assets/llama.svg" class="w-16 h-16" alt="" />
+      <h1 class="self-center text-xl">Llama Image</h1>
+    </span>
+  </span>
+  <span
+    class="col-start-2 col-end-2 flex flex-grow self-start justify-self-center"
+  >
+    <a routerLink="/home" routerLinkActive="active" class="mr-5"
+      ><mat-icon aria-hidden="false" fontIcon="home"></mat-icon
+    ></a>
+
+    <a
+      routerLink="/images"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+      ><mat-icon aria-hidden="false" fontIcon="photo_library"></mat-icon
+    ></a>
+  </span>
+</nav>

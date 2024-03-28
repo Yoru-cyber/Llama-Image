@@ -1,0 +1,20 @@
+meta {
+  name: convert
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8000/convert?type=png
+  body: multipartForm
+  auth: none
+}
+
+query {
+  type: png
+}
+
+body:multipart-form {
+  file: @file(/home/carlos/Pictures/_96ae8782-d935-4eef-864a-30bc55e117fa.jpeg)
+  ~type: png
+}
