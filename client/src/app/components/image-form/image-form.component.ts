@@ -18,12 +18,10 @@ export class ImageFormComponent {
   }
   onFileChange(event: any) {
       this.file = event.target.files[0] as File;
-      console.log(this.file);
     
   }
   onSubmit() {
     const formData = new FormData();
-    console.log(this.file)
     formData.append('user_image', this.file);
     this.http.post('http://localhost:8000/scale?scaling=2', formData).subscribe((response) => {
     console.log(response)

@@ -36,10 +36,12 @@ async def read_image(user_image: UploadFile, type: str):
 @app.post("/scale")
 async def scale_image(scaling: int, user_image: UploadFile):
     if user_image and scaling:
+        randomSeed = random.seed()
+        hashCode = hash(f'{user_image.filename}{randomSeed}')
         image = Image.open(user_image.file)
         image = image.resize([image.width * scaling, image.height * scaling])
-        image.save(f'./images/{user_image.filename}')
-        return {"status_code": 200}
+        image.save(f'./images/{hashCode}.png')
+        return FileResponse(f'./images/{hashCode}.png')
 
 if __name__ == "__main__":
     import uvicorn
