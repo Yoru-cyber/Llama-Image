@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, HTTPException
+from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from PIL import Image
@@ -23,22 +23,22 @@ async def read_root():
 
 #http://localhost:8000/convert?type=png
 @app.post("/convert")
-async def read_image(file: UploadFile, type: str):
-    if file and type:
+async def read_image(user_image: UploadFile, type: str):
+    if user_image and type:
         randomSeed = random.seed()
-        hashCode = hash(f'{file.filename}{randomSeed}')
-        image = Image.open(file.file)
+        hashCode = hash(f'{user_image.filename}{randomSeed}')
+        image = Image.open(user_image.file)
         image.save(f'./images/{hashCode}.{type}') #to avoid having the possibility of a file with the same name, add a hash code with a random seeded value to the filename
         return FileResponse(f'./images/{hashCode}.{type}')
 
 
 # http://localhost:8000/scale?scaling=2
 @app.post("/scale")
-async def scale_image(file: UploadFile, scaling: int):
-    if file and scaling:
-        image = Image.open(file.file)
+async def scale_image(scaling: int, user_image: UploadFile):
+    if user_image and scaling:
+        image = Image.open(user_image.file)
         image = image.resize([image.width * scaling, image.height * scaling])
-        image.save(f'./images/{file.filename}')
+        image.save(f'./images/{user_image.filename}')
         return {"status_code": 200}
 
 if __name__ == "__main__":
