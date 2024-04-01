@@ -1,5 +1,17 @@
 <form [formGroup]="imageForm" (ngSubmit)="onSubmit()"  class="flex flex-col items-center p-5" #image_form>
     <input type="file" name="imageUpload" formControlName="user_image" (change)="onFileChange($event)"  accept="image/*"  id="image" class="w-96 mb-5">
-    <!-- <input type="number" name="scaleFactor" id="scale" formControlName="scale_factor"placeholder="Scale Factor" class="mb-5 text-black"> -->
-    <button type="submit" class="w-96 bg-sky-700">Submit</button>
+    <span class="flex flex-row bg-white pr-4 mb-5 rounded-md">
+        <mat-checkbox formControlName="scale_factor">2X</mat-checkbox>
+    <mat-checkbox formControlName="scale_factor">4X</mat-checkbox>
+    </span>
+    <button type="submit" class="w-24 bg-sky-700 rounded-lg">Submit</button>
 </form>
+@if (this.responseImage) {
+    <span class="flex flex-col justify-center items-center">
+        <img [src]="responseImage" alt="" class="w-44 h-44 ">
+    <a [href]="responseImage" download="responseImage">Download</a>
+    </span>
+}
+@else {
+    <p class="text-center">No image yets</p>
+}
