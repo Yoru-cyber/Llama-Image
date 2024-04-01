@@ -51,9 +51,12 @@ async def scale_image(scaling: int, user_image: UploadFile):
         path = f"{hashCode}.png"
         return {"status_code": 201, "message": "Object created", "path": path}
 
+
 @app.get("/image/{image_name}")
 async def get_image(image_name: str):
     return FileResponse(f"./images/{image_name}")
+
+
 if __name__ == "__main__":
     import uvicorn
 

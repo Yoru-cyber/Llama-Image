@@ -5,8 +5,6 @@ import { ImageFormComponent } from '../../components/image-form/image-form.compo
   standalone: true,
   imports: [ImageFormComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
-export class HomePage {
-
-}
+export class HomePageComponent {}
