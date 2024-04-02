@@ -24,10 +24,4 @@ jobs:
         run: |
           cd server || coverage report -m
       - name: Ruff check
-        run: ruff check  --fix
-      - name: Test with pytest
-        run: |
-          cd server || coverage run -m pytest test -v -s
-      - name: Generate Coverage Report
-        run: |
-          coverage report -m
+        run: ruff check --fix
