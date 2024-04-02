@@ -27,7 +27,7 @@ def test_scale():
     server_response = response.json()
     assert server_response["status_code"] == 201
     assert server_response["message"] == "Object created"
-    assert type(server_response["path"]) == str
+    assert isinstance(server_response["path"], str)
 
 
 def test_convert():
@@ -42,4 +42,4 @@ def test_convert():
     server_response = response.json()
     assert server_response["status_code"] == 201
     assert server_response["message"] == "Object created"
-    assert type(server_response["path"]) == str
+    assert isinstance(server_response["path"], str)
