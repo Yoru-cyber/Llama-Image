@@ -1,6 +1,6 @@
 from fastapi import FastAPI, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse 
+from fastapi.responses import FileResponse
 from PIL import Image
 import random
 
