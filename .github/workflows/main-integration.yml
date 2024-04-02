@@ -19,9 +19,9 @@ jobs:
           path: "server/requirements.txt"
       - name: Test with pytest  
         run: |  
-          cd server || coverage run -m pytest  -v -s  
+          cd server || coverage run -m pytest -v -s  
       - name: Generate Coverage Report  
         run: |  
-          cd test || coverage report -m
+          cd server || coverage report -m
   
   
