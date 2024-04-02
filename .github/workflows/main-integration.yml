@@ -18,10 +18,13 @@ jobs:
         with:
           path: "server/requirements.txt"
       - name: Test with pytest
+        working-directory: server
         run: |
-          cd server || coverage run -m pytest -v -s
+          coverage run -m pytest -v -s
       - name: Generate Coverage Report
+        working-directory: server
         run: |
-          cd server || coverage report -m
+          coverage report -m
       - name: Ruff check
+        working-directory: server
         run: ruff check --fix
