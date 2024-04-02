@@ -22,6 +22,6 @@ jobs:
           cd server || coverage run -m pytest  -v -s  
       - name: Generate Coverage Report  
         run: |  
-          coverage report -m
+          cd test || coverage report -m
   
   
