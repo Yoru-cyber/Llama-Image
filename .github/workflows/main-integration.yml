@@ -21,9 +21,8 @@ jobs:
         run: |
           cd server || coverage run -m pytest -v -s
       - name: Generate Coverage Report
-        working-directory: server
         run: |
-          coverage report -m
+          cd server || coverage report -m
       - name: Ruff check
         working-directory: server
         run: ruff check --fix
